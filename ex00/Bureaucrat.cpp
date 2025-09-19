@@ -34,6 +34,12 @@ Bureaucrat::Bureaucrat(int grade)
 	std::cout << "Grade assignement Bureaucrat constructor called" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(std::string name)
+: name(name), grade(150)
+{
+	std::cout << "Name assignement Bureaucrat constructor called" << std::endl;
+}
+
 Bureaucrat::Bureaucrat(std::string name, int grade)
 : name(name)
 {
@@ -50,13 +56,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << "Grade assignement Bureaucrat constructor called" << std::endl;
-	std::cout << "Name assignement Bureaucrat constructor called" << std::endl;
-}
-
-Bureaucrat::Bureaucrat(std::string name, int grade)
-: name(name)
-{
 	std::cout << "Name and Grade assignement Bureaucrat constructor called" << std::endl;
 }
 
@@ -115,4 +114,11 @@ void	Bureaucrat::decrement()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+}
+
+// ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
+std::ostream	&operator<<(std::ostream& os, const Bureaucrat& b)
+{
+	os << b.getName() << ", bureaucrat grade " << b.getGrade();
+	return (os);
 }
