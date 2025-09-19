@@ -15,6 +15,51 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
     std::cout << "Copy Bureaucrat constructor called" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(int grade)
+: name("default")
+{
+	try
+	{
+		if (grade >= 1 && grade <= 150)
+			this->grade = grade;
+		else if (grade > 150)
+			throw GradeTooLowException();
+		else
+			throw GradeTooHighException();
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "Grade assignement Bureaucrat constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade)
+: name(name)
+{
+	try
+	{
+		if (grade >= 1 && grade <= 150)
+			this->grade = grade;
+		else if (grade > 150)
+			throw GradeTooLowException();
+		else
+			throw GradeTooHighException();
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "Grade assignement Bureaucrat constructor called" << std::endl;
+	std::cout << "Name assignement Bureaucrat constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade)
+: name(name)
+{
+	std::cout << "Name and Grade assignement Bureaucrat constructor called" << std::endl;
+}
+
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Destructor Bureaucrat called" << std::endl;
@@ -27,6 +72,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 		this->grade = obj.grade;
 	}
 	std::cout << "Assignment Bureaucrat called" << std::endl;
+	return (*this);
 }
 
 // -------------------------------- GET ----------------------------------------
@@ -41,18 +87,32 @@ int const			&Bureaucrat::getGrade() const
 }
 
 // ------------------------------- METHODS -------------------------------------
-int	Bureaucrat::increment()
+void	Bureaucrat::increment()
 {
-	if (this->grade > 1)
-		this->grade--;
-	else
-		throw ;
+	try
+	{
+		if (this->grade > 1)
+			this->grade--;
+		else
+			throw GradeTooHighException();
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}	
 }
 
-int	Bureaucrat::decrement()
+void	Bureaucrat::decrement()
 {
-	if (this->grade < 150)
-		this->grade++;
-	else
-		throw ;
+	try
+	{
+		if (this->grade < 150)
+			this->grade++;
+		else
+			throw GradeTooLowException();
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
