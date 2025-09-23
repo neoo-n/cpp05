@@ -11,7 +11,7 @@ void	assignement_constructor_test()
 	std::cout << b2 << std::endl;
 	std::cout << btot << std::endl;
 
-	std::cout << std::endl << "Incrementing grades" << std::endl;
+	std::cout << std::endl << "** Incrementing grades **" << std::endl;
 	b1.increment();
 	b2.increment();
 	btot.increment();
@@ -19,7 +19,7 @@ void	assignement_constructor_test()
 	std::cout << b2 << std::endl;
 	std::cout << btot << std::endl;
 
-	std::cout << std::endl << "Decrementing grades" << std::endl;
+	std::cout << std::endl << "** Decrementing grades **" << std::endl;
 	b1.decrement();
 	b2.decrement();
 	btot.decrement();
@@ -27,14 +27,12 @@ void	assignement_constructor_test()
 	std::cout << b2 << std::endl;
 	std::cout << btot << std::endl;
 
-	std::cout << std::endl << "extreme tests" << std::endl;
+	std::cout << std::endl << "** extreme tests **" << std::endl;
 	btot.increment();
 	std::cout << btot << std::endl;
 	btot.increment();
 	std::cout << btot << std::endl;
 
-	b1.decrement();
-	std::cout << b1 << std::endl;
 	b1.decrement();
 	std::cout << b1 << std::endl;
 }
@@ -47,12 +45,41 @@ void	copy_constructor_test()
 	std::cout << b1 << std::endl;
 	std::cout << b2 << std::endl;
 
-	std::cout << "Changing grade of b2" << std::endl;
+	std::cout << std::endl << "** Changing grade of b1 **" << std::endl;
+	b1.decrement();
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+
+	std::cout << std::endl << "** Changing grade of b2 **" << std::endl;
+	b2.increment();
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+
 }
 
-// void	assignment_operator_test()
-// {
-// }
+void	assignment_operator_test()
+{
+	Bureaucrat	b1("Dan", 50);
+	Bureaucrat	b2(46);
+
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+
+	std::cout << std::endl << "** Assignment operator **" << std::endl;
+	b2 = b1;
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+
+	std::cout << std::endl << "** Changing grade of b1 **" << std::endl;
+	b1.increment();
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+
+	std::cout << std::endl << "** Changing grade of b2 **" << std::endl;
+	b2.decrement();
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+}
 
 // void	invalid_arguments_test()
 // {
@@ -60,9 +87,9 @@ void	copy_constructor_test()
 
 int main()
 {
-	assignement_constructor_test();
+	// assignement_constructor_test();
 	// copy_constructor_test();
-	// assignment_operator_test();
+	assignment_operator_test();
 	// invalid_arguments_test();
 	return 0;
 }
