@@ -23,13 +23,19 @@ Bureaucrat::Bureaucrat(int grade)
 		if (grade >= 1 && grade <= 150)
 			this->grade = grade;
 		else if (grade > 150)
-			throw GradeTooLowException();
+			throw Bureaucrat::GradeTooLowException();
 		else
-			throw GradeTooHighException();
+			throw Bureaucrat::GradeTooHighException();
 	}
-	catch (std::exception& e)
+	catch(GradeTooHighException& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << "\033[0;31m" << "Exception with " << this->name << " : ";
+		std::cerr << e.what() << "\033[0m" << std::endl;
+	}
+	catch(GradeTooLowException& e)
+	{
+		std::cerr << "\033[0;31m" << "Exception with " << this->name << " : ";
+		std::cerr << e.what() << "\033[0m" << std::endl;
 	}
 	std::cout << "Grade assignement Bureaucrat constructor called" << std::endl;
 }
@@ -52,9 +58,15 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 		else
 			throw GradeTooHighException();
 	}
-	catch (std::exception& e)
+	catch(GradeTooHighException& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << "\033[0;31m" << "Exception with " << this->name << " : ";
+		std::cerr << e.what() << "\033[0m" << std::endl;
+	}
+	catch(GradeTooLowException& e)
+	{
+		std::cerr << "\033[0;31m" << "Exception with " << this->name << " : ";
+		std::cerr << e.what() << "\033[0m" << std::endl;
 	}
 	std::cout << "Name and Grade assignement Bureaucrat constructor called" << std::endl;
 }
@@ -97,7 +109,7 @@ void	Bureaucrat::increment()
 	}
 	catch(GradeTooHighException& e)
 	{
-		std::cerr << "\033[0;31m" << this->name << " with grade " << this->grade << " : " << std::endl;
+		std::cerr << "\033[0;31m" << "Exception with " << this->name << " : ";
 		std::cerr << e.what() << "\033[0m" << std::endl;
 	}	
 }
@@ -113,7 +125,7 @@ void	Bureaucrat::decrement()
 	}
 	catch(GradeTooLowException& e)
 	{
-		std::cerr << "\033[0;31m" << this->name << " with grade " << this->grade << " : " << std::endl;
+		std::cerr << "\033[0;31m" << "Exception with " << this->name << " : ";
 		std::cerr << e.what() << "\033[0m" << std::endl;
 	}
 }
