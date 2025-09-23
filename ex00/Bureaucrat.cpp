@@ -95,9 +95,10 @@ void	Bureaucrat::increment()
 		else
 			throw GradeTooHighException();
 	}
-	catch(std::exception& e)
+	catch(GradeTooHighException& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\033[0;31m" << this->name << " with grade " << this->grade << " : " << std::endl;
+		std::cerr << e.what() << "\033[0m" << std::endl;
 	}	
 }
 
@@ -110,9 +111,10 @@ void	Bureaucrat::decrement()
 		else
 			throw GradeTooLowException();
 	}
-	catch(std::exception& e)
+	catch(GradeTooLowException& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\033[0;31m" << this->name << " with grade " << this->grade << " : " << std::endl;
+		std::cerr << e.what() << "\033[0m" << std::endl;
 	}
 }
 
