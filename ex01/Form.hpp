@@ -3,6 +3,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
 class Form
 {
@@ -33,6 +34,10 @@ class Form
 		bool const			&getSigned() const;
 		int const 			&getGradeSign() const;
 		int const			&getGradeExecute() const;
+
+		void	beSigned(const Bureaucrat &b);
 };
+
+std::ostream	&operator<<(std::ostream &os, const Form &f);
 
 #endif

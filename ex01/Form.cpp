@@ -49,3 +49,31 @@ int const			&Form::getGradeExecute() const
 {
 	return (this->_grade_execute);
 }
+
+// ------------------------------- METHODS -------------------------------------
+void	Form::beSigned(const Bureaucrat &b)
+{
+	try
+	{
+		if (b.getGrade() <= this->_grade_sign)
+			this->_signed = true;
+		else
+			throw GradeTooLowException();
+	}
+	catch(GradeTooLowException& e)
+	{
+		std::cerr << "\033[0;31m" << "Exception with form " << this->_name << " : ";
+		std::cerr << e.what() << "\033[0m" << std::endl;
+	}
+	
+}
+
+// ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
+std::ostream	&operator<<(std::ostream &os, const Form &f)
+{
+	os << "Informations for the form " << f.getName() << " :" << std::endl
+		<< "Signed : " << f.getSigned() << std::endl
+		<< "Grade to sign : " << f.getGradeSign() << std::endl
+		<< "Gradde to execute : " << f.getGradeExecute();
+	return (os);
+}

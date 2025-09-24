@@ -3,6 +3,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -35,6 +36,7 @@ class Bureaucrat
 
 		void	increment();
 		void	decrement();
+		void	signForm(Form &f);
 };
 
 std::ostream	&operator<<(std::ostream& os, const Bureaucrat& b);

@@ -130,6 +130,24 @@ void	Bureaucrat::decrement()
 	}
 }
 
+void	Bureaucrat::signForm(Form &f)
+{
+	if (&f)
+		f.beSigned(*this);
+	if (&f && f.getSigned())
+		std::cout <<  this->_name << " signed " << f.getName() << std::endl;
+	else
+	{
+		std::cout << this->_name << " couldn't sign " << f.getName() << " because ";
+		if (&f)
+			std::cout << "there is no form";
+		else
+			std::cout << this->_name << "'s grade was too low";
+		std::cout << std::endl;
+	}
+
+}
+
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 std::ostream	&operator<<(std::ostream& os, const Bureaucrat& b)
 {
