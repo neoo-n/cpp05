@@ -6,6 +6,7 @@ void	assignement_constructor_test()
 	Bureaucrat	b1("Dan");
 	Bureaucrat	b2(45);
 	Bureaucrat	btot("Fujii Kaze", 2);
+	Form		f1;
 
 	std::cout << b1 << std::endl;
 	std::cout << b2 << std::endl;
@@ -26,6 +27,10 @@ void	assignement_constructor_test()
 	std::cout << b1 << std::endl;
 	std::cout << b2 << std::endl;
 	std::cout << btot << std::endl;
+
+	std::cout << std::endl << "** Form sign **" << std::endl;
+
+
 }
 
 void	copy_constructor_test()
