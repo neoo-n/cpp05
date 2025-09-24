@@ -10,7 +10,7 @@ Bureaucrat::Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
-: _name(cpy.name), _grade(cpy.grade)
+: _name(cpy._name), _grade(cpy._grade)
 {
     std::cout << "Copy Bureaucrat constructor called" << std::endl;
 }
