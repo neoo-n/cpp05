@@ -78,11 +78,11 @@ void	invalid_arguments_test()
 	Bureaucrat	b2(46);
 	Bureaucrat	b3(1);
 
-	std::cout << std::endl << "** constructors invalid **" << std::endl;
+	std::cout << std::endl << "** invalid constructors **" << std::endl;
 	Bureaucrat	invalid_grade_low(151);
 	Bureaucrat	invalid_grade_high(0);
 
-	std::cout << std::endl << "** extreme tests **" << std::endl;
+	std::cout << std::endl << "** extremity tests **" << std::endl;
 	b1.decrement();
 	std::cout << b1 << std::endl;
 	b3.increment();
