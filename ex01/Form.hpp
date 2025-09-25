@@ -5,7 +5,15 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
-class Form
+# define BLUE "\033[34m"
+# define WHITE "\033[0m"
+# define RED "\033[0;31m"
+# define PINK "\033[1;35m"
+# define YELLOW "\033[0;33m"
+
+class	Bureaucrat;
+
+class	Form
 {
     private:
 		const std::string	_name;
@@ -27,6 +35,9 @@ class Form
     public:
         Form(void);
         Form(const Form &cpy);
+		Form(const std::string name);
+		Form(const int grade_sign);
+		Form(const std::string name, const int grade_sign);
         ~Form(void);
         Form &operator=(const Form &obj);
 

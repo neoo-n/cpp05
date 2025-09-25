@@ -4,18 +4,68 @@
 Form::Form()
 : _name("default"), _signed(false), _grade_sign(1), _grade_execute(1)
 {
-    std::cout << "Default Form constructor called" << std::endl;
+    std::cout << BLUE << "Default Form constructor called" << std::endl << WHITE;
 }
 
 Form::Form(const Form &cpy)
 : _name(cpy._name), _signed(cpy._signed), _grade_sign(cpy._grade_sign), _grade_execute(cpy._grade_execute)
 {
-    std::cout << "Copy Form constructor called" << std::endl;
+    std::cout << BLUE << "Copy Form constructor called" << std::endl << WHITE;
+}
+	
+Form::Form(const std::string name)
+: _name(name), _signed(false), _grade_sign(1), _grade_execute(1)
+{
+	std::cout << BLUE << "Name assignement Form constructor called" << std::endl << WHITE;
+}
+
+Form::Form(const int grade_sign)
+: _name("default"), _signed(false), _grade_sign(grade_sign), _grade_execute(1)
+{
+	try
+	{
+		if (grade_sign < 1)
+			throw	GradeTooHighException();
+		else if (grade_sign > 150)
+			throw GradeTooLowException();
+	}
+	catch(GradeTooHighException& e)
+	{
+		std::cerr << RED << "Exception with form " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
+	}
+	catch(GradeTooLowException& e)
+	{
+		std::cerr << RED << "Exception with form " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
+	}
+}
+
+Form::Form(const std::string name, const int grade_sign)
+: _name(name), _signed(false), _grade_sign(grade_sign),_grade_execute(1)
+{
+	try
+	{
+		if (grade_sign < 1)
+			throw	GradeTooHighException();
+		else if (grade_sign > 150)
+			throw GradeTooLowException();
+	}
+	catch(GradeTooHighException& e)
+	{
+		std::cerr << RED << "Exception with form " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
+	}
+	catch(GradeTooLowException& e)
+	{
+		std::cerr << RED << "Exception with form " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
+	}
 }
 
 Form::~Form()
 {
-    std::cout << "Destructor Form called" << std::endl;
+    std::cout << YELLOW << "Destructor Form called" << std::endl << WHITE;
 }
 
 Form &Form::operator=(const Form &obj)
@@ -24,7 +74,7 @@ Form &Form::operator=(const Form &obj)
 	{
 		this->_signed = obj._signed;
 	}
-	std::cout << "Assignment Form called" << std::endl;
+	std::cout << PINK << "Assignment Form called" << std::endl << WHITE;
 	return (*this);
 
 }
@@ -62,8 +112,8 @@ void	Form::beSigned(const Bureaucrat &b)
 	}
 	catch(GradeTooLowException& e)
 	{
-		std::cerr << "\033[0;31m" << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << "\033[0m" << std::endl;
+		std::cerr << RED << "Exception with form " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
 	}
 	
 }
@@ -71,9 +121,14 @@ void	Form::beSigned(const Bureaucrat &b)
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 std::ostream	&operator<<(std::ostream &os, const Form &f)
 {
+	std::string	is_signed;
+	if (f.getSigned())
+		is_signed = "yes";
+	else
+		is_signed = "no";
 	os << "Informations for the form " << f.getName() << " :" << std::endl
-		<< "Signed : " << f.getSigned() << std::endl
+		<< "Signed : " << is_signed << std::endl
 		<< "Grade to sign : " << f.getGradeSign() << std::endl
-		<< "Gradde to execute : " << f.getGradeExecute();
+		<< "Grade to execute : " << f.getGradeExecute();
 	return (os);
 }
