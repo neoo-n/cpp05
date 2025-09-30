@@ -31,6 +31,11 @@ class	AForm
 			public:
 				const char* what() {return "The grade is too low.";}
 		};
+		class	FormNotSigned : public std::exception
+		{
+			public:
+				const char*	what() {return "The form is not signed.";}
+		};
 
     public:
         AForm(void);
