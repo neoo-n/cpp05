@@ -164,6 +164,12 @@ void	AForm::execute(Bureaucrat const & executor) const
 		std::cerr << RED << "Exception for form " << this->_name << " execution" << std::endl;
 		std::cerr << e.what() << std::endl << WHITE;
 	}
+	catch(GradeTooLowException& e)
+	{
+		std::cerr << RED << "Exception for form " << this->_name << " execution" << std::endl;
+		std::cerr << e.what() << std::endl << WHITE;
+
+	}
 	
 }
 

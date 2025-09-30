@@ -31,3 +31,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	std::cout << PINK << "Assignment PresidentialPardonForm called" << WHITE << std::endl;
 }
 
+// ------------------------------- METHODS -------------------------------------
+void	PresidentialPardonForm::execution()
+{
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}

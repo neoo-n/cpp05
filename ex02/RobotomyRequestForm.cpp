@@ -31,3 +31,14 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	std::cout << PINK << "Assignment RobotomyRequestForm called" << WHITE << std::endl;
 }
 
+// ------------------------------- METHODS -------------------------------------
+void	RobotomyRequestForm::execution()
+{
+	int	i;
+	i = rand() % 2;
+	std::cout << "*** MAKE SOME DRILLING NOISES ***" << std::endl;
+	if (i)
+		std::cout << this->_target << " has been robotomized successfully." << std::endl;
+	else
+		std::cout << "The robotomy on " << this->_target << " has failed." << std::endl;
+}

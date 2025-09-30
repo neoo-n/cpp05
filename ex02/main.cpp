@@ -1,15 +1,17 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 void	assignement_constructor_test()
 {
 	Bureaucrat	b1("Dan");
 	Bureaucrat	b2(45);
 	Bureaucrat	btot("Fujii Kaze", 1);
-	AForm		f1("Cat habitation");
-	AForm		f2(50);
-	AForm		ftot("bruhhhhther", 150);
+	ShrubberyCreationForm s1;
 
 	std::cout << b1 << std::endl;
 	std::cout << b2 << std::endl;

@@ -21,6 +21,8 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm(const RobotomyRequestForm &cpy);
         ~RobotomyRequestForm();
         RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
+
+		void	execution();
 };
 
 #endif

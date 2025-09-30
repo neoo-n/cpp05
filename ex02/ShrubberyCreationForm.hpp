@@ -3,6 +3,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include <iostream>
+# include <fstream>
 # include "AForm.hpp"
 
 # define BLUE "\033[34m"
@@ -16,11 +17,19 @@ class ShrubberyCreationForm : public AForm
     private:
 		std::string	_target;
 
+		class	FileNotOpen : public std::exception
+		{
+			public:
+				const char*	what() {return "File not open.";}
+		};
+
     public:
         ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm &cpy);
         ~ShrubberyCreationForm();
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
+
+		void	execution();
 };
 
 #endif
