@@ -143,7 +143,12 @@ void	Bureaucrat::signAForm(AForm &f)
 
 }
 
-// ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
+void	executeForm(AForm const & form) const
+{
+	form.execute(*this);
+}
+
+// ------------------------------ OUT FUNCTIONS -------------------------------------
 std::ostream	&operator<<(std::ostream& os, const Bureaucrat& b)
 {
 	os << b.getName() << ", bureaucrat grade " << b.getGrade();
