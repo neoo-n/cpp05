@@ -13,12 +13,12 @@ class Bureaucrat
 		class	GradeTooHighException : public std::exception
 		{
 			public:
-				const char* what(){return "You can't have a grade this high.";}
+				const char* what() const throw();
 		};
 		class	GradeTooLowException : public std::exception
 		{
 			public:
-				const char* what() {return "You can't have a grade this low.";}
+				const char* what() const throw();
 		};
 
     public:
@@ -30,8 +30,8 @@ class Bureaucrat
         ~Bureaucrat();
         Bureaucrat &operator=(const Bureaucrat &obj);
 
-		std::string const& getName() const;
-		int const& getGrade() const;
+		std::string const&	getName() const;
+		int const&			getGrade() const;
 
 		void	increment();
 		void	decrement();

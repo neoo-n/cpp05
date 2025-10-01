@@ -80,7 +80,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
 	if (this != &obj)
 	{
-		this->_grade = obj._grade;
+		this->_grade = obj.getGrade();
 	}
 	std::cout << PINK << "Assignment Bureaucrat called" << std::endl << WHITE;
 	return (*this);
@@ -143,9 +143,16 @@ void	Bureaucrat::signAForm(AForm &f)
 
 }
 
-void	executeForm(AForm const & form) const
+void	Bureaucrat::executeForm(AForm const & form) const
 {
-	form.execute(*this);
+	try
+	{
+		form.execute(*this);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 // ------------------------------ OUT FUNCTIONS -------------------------------------

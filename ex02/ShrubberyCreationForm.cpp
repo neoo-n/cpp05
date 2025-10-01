@@ -78,6 +78,4 @@ void	ShrubberyCreationForm::execution()
 		std::cerr << e.what() << std::endl << WHITE;
 	}
 	
-	
-	
 }
