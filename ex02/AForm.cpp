@@ -173,7 +173,23 @@ void	AForm::execute(Bureaucrat const & executor) const
 	
 }
 
-// ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
+// --------------------------------- EXCEPTIONS -----------------------------------------
+const char* AForm::GradeTooHighException::what() const throw()
+{
+	return "The grade is too high.";
+}
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+	return "The grade is too low.";
+}
+
+const char*	AForm::FormNotSigned::what() const throw()
+{
+	return "The form is not signed.";
+}
+
+// ------------------------------ OUT FUNCTIONS -------------------------------------
 std::ostream	&operator<<(std::ostream &os, const AForm &f)
 {
 	std::string	is_signed;

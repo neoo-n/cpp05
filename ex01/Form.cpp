@@ -118,6 +118,17 @@ void	Form::beSigned(const Bureaucrat &b)
 	
 }
 
+// --------------------------------- EXCEPTIONS -----------------------------------------
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return "The grade is too high.";
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return "The grade is too low.";
+}
+
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 std::ostream	&operator<<(std::ostream &os, const Form &f)
 {

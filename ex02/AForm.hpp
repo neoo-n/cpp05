@@ -24,17 +24,17 @@ class	AForm
 		class	GradeTooHighException : public std::exception
 		{
 			public:
-				const char* what(){return "The grade is too high.";}
+				const char* what() const throw();
 		};
 		class	GradeTooLowException : public std::exception
 		{
 			public:
-				const char* what() {return "The grade is too low.";}
+				const char* what() const throw();
 		};
 		class	FormNotSigned : public std::exception
 		{
 			public:
-				const char*	what() {return "The form is not signed.";}
+				const char*	what() const throw();
 		};
 
     public:
