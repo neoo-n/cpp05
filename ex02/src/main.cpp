@@ -73,10 +73,15 @@ void	assignement_constructor_test()
 	
 	std::cout << std::endl << "2)" << std::endl;
 	b1.executeForm(r1);
+	usleep(100000);
 	b2.executeForm(r1);
+	usleep(100000);
 	btot.executeForm(r1);
+	usleep(100000);
 	b1.executeForm(r2);
+	usleep(100000);
 	b2.executeForm(r2);
+	usleep(100000);
 	btot.executeForm(r2);
 
 	std::cout << std::endl << "tot)" << std::endl;
