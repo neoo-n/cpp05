@@ -27,12 +27,7 @@ Bureaucrat::Bureaucrat(int grade)
 		else
 			throw Bureaucrat::GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
-	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
@@ -58,12 +53,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 		else
 			throw GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
-	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
@@ -107,7 +97,7 @@ void	Bureaucrat::increment()
 		else
 			throw GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
@@ -123,7 +113,7 @@ void	Bureaucrat::decrement()
 		else
 			throw GradeTooLowException();
 	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;

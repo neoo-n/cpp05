@@ -1,5 +1,5 @@
 
-#include "AForm.hpp"
+#include "../incl/AForm.hpp"
 
 AForm::AForm()
 : _name("default"), _signed(false), _grade_sign(1), _grade_execute(1)
@@ -29,16 +29,12 @@ AForm::AForm(const int grade_sign)
 		else if (grade_sign > 150)
 			throw GradeTooLowException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with form " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
 	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
+	std::cout << BLUE << "Grade assignement AForm constructor called" << std::endl << WHITE;
 }
 
 AForm::AForm(const std::string name, const int grade_sign)
@@ -51,16 +47,12 @@ AForm::AForm(const std::string name, const int grade_sign)
 		else if (grade_sign > 150)
 			throw GradeTooLowException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with form " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
 	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
+	std::cout << BLUE << "Name and Grade assignement AForm constructor called" << std::endl << WHITE;
 }
 
 AForm::AForm(const std::string name, const int grade_sign, const int grade_execute)
@@ -73,16 +65,12 @@ AForm::AForm(const std::string name, const int grade_sign, const int grade_execu
 		else if (grade_sign > 150 || grade_execute > 150)
 			throw GradeTooLowException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with form " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
 	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
+	std::cout << BLUE << "Name and Grades assignement AForm constructor called" << std::endl << WHITE;
 }
 
 AForm::~AForm()
@@ -137,40 +125,24 @@ void	AForm::beSigned(const Bureaucrat &b)
 		else
 			throw GradeTooLowException();
 	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with form " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
 	}
-	
 }
 
 void	AForm::execute(Bureaucrat const & executor) const
 {
-	try
+	if (this->_signed)
 	{
-		if (this->_signed)
-		{
-			if (executor.getGrade() <= this->_grade_execute)
-				execution;
-			else
-				throw GradeTooLowException();
-		}
+		if (executor.getGrade() <= this->_grade_execute)
+			this->execution();
 		else
-			throw FormNotSigned();
+			throw GradeTooLowException();
 	}
-	catch(FormNotSigned& e)
-	{
-		std::cerr << RED << "Exception for form " << this->_name << " execution" << std::endl;
-		std::cerr << e.what() << std::endl << WHITE;
-	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << RED << "Exception for form " << this->_name << " execution" << std::endl;
-		std::cerr << e.what() << std::endl << WHITE;
-
-	}
-	
+	else
+		throw FormNotSigned();
 }
 
 // --------------------------------- EXCEPTIONS -----------------------------------------

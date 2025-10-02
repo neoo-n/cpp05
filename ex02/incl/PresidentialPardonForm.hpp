@@ -19,10 +19,11 @@ class PresidentialPardonForm : public AForm
     public:
         PresidentialPardonForm();
         PresidentialPardonForm(const PresidentialPardonForm &cpy);
+		PresidentialPardonForm(const std::string target);
         ~PresidentialPardonForm();
         PresidentialPardonForm &operator=(const PresidentialPardonForm &obj);
 	
-		void	execution();
+		void	execution() const;
 };
 
 #endif

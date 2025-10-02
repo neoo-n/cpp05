@@ -1,5 +1,5 @@
 
-#include "PresidentialPardonForm.hpp"
+#include "../incl/PresidentialPardonForm.hpp"
 
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 
@@ -13,6 +13,12 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cpy
 : AForm(cpy.getName(), cpy.getGradeSign(), cpy.getGradeExecute()), _target(cpy._target)
 {
     std::cout << BLUE << "Copy PresidentialPardonForm constructor called" << WHITE << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string target)
+: AForm("presidential", 25, 5), _target(target)
+{
+    std::cout << BLUE << "Name PresidentialPardonForm constructor called" << WHITE << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -32,7 +38,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 // ------------------------------- METHODS -------------------------------------
-void	PresidentialPardonForm::execution()
+void	PresidentialPardonForm::execution() const
 {
 	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

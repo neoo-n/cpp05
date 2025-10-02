@@ -1,5 +1,5 @@
 
-#include "RobotomyRequestForm.hpp"
+#include "../incl/RobotomyRequestForm.hpp"
 
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 
@@ -13,6 +13,12 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &cpy)
 : AForm(cpy.getName(), cpy.getGradeSign(), cpy.getGradeExecute()), _target(cpy._target)
 {
     std::cout << BLUE << "Copy RobotomyRequestForm constructor called" << WHITE << std::endl;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string target)
+: AForm("robotomy", 72, 45), _target(target)
+{
+    std::cout << BLUE << "Name RobotomyRequestForm constructor called" << WHITE << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
@@ -32,9 +38,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 }
 
 // ------------------------------- METHODS -------------------------------------
-void	RobotomyRequestForm::execution()
+void	RobotomyRequestForm::execution() const
 {
 	int	i;
+	srand(time(0));
 	i = rand() % 2;
 	std::cout << "*** MAKE SOME DRILLING NOISES ***" << std::endl;
 	if (i)

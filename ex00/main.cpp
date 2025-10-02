@@ -32,7 +32,7 @@ void	assignement_constructor_test()
 
 void	copy_constructor_test()
 {
-	std::cout << "--- COPY CONSTRUCTOR TEST ---" << std::endl;
+	std::cout << std::endl << "--- COPY CONSTRUCTOR TEST ---" << std::endl;
 	Bureaucrat	b1("Dan", 45);
 	Bureaucrat	b2(b1);
 
@@ -53,7 +53,7 @@ void	copy_constructor_test()
 
 void	assignment_operator_test()
 {
-	std::cout << "--- ASSIGNMENT OPERATOR TEST ---" << std::endl;
+	std::cout << std::endl << "--- ASSIGNMENT OPERATOR TEST ---" << std::endl;
 	Bureaucrat	b1("Dan", 50);
 	Bureaucrat	b2(46);
 
@@ -79,7 +79,7 @@ void	assignment_operator_test()
 
 void	invalid_arguments_test()
 {
-	std::cout << "--- INVALID ARGUMENTS TEST ---" << std::endl;
+	std::cout << std::endl << "--- INVALID ARGUMENTS TEST ---" << std::endl;
 	Bureaucrat	b1("Dan");
 	Bureaucrat	b2(46);
 	Bureaucrat	b3(1);

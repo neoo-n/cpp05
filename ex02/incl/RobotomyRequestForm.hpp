@@ -3,6 +3,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
+# include <cstdlib>
+# include <unistd.h>
 # include "AForm.hpp"
 
 # define BLUE "\033[34m"
@@ -19,10 +21,11 @@ class RobotomyRequestForm : public AForm
     public:
         RobotomyRequestForm();
         RobotomyRequestForm(const RobotomyRequestForm &cpy);
+		RobotomyRequestForm(const std::string target);
         ~RobotomyRequestForm();
         RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
 
-		void	execution();
+		void	execution() const;
 };
 
 #endif

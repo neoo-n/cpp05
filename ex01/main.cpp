@@ -4,6 +4,7 @@
 
 void	assignement_constructor_test()
 {
+	std::cout << "--- ASSIGNMENT CONSTRUCTOR TEST ---" << std::endl;
 	Bureaucrat	b1("Dan");
 	Bureaucrat	b2(45);
 	Bureaucrat	btot("Fujii Kaze", 1);
@@ -34,6 +35,7 @@ void	assignement_constructor_test()
 	b2.signForm(ftot);
 	btot.signForm(ftot);
 
+	std::cout << std::endl;
 	std::cout << f1 << std::endl;
 	std::cout << f2 << std::endl;
 	std::cout << ftot << std::endl;
@@ -41,6 +43,7 @@ void	assignement_constructor_test()
 
 void	copy_constructor_test()
 {
+	std::cout << std::endl << "--- COPY CONSTRUCTOR TEST ---" << std::endl;
 	Bureaucrat	b1("Dan", 45);
 	Bureaucrat	b2(b1);
 	Form		f1("Cat food", 50);
@@ -66,6 +69,7 @@ void	copy_constructor_test()
 
 void	assignment_operator_test()
 {
+	std::cout << std::endl << "--- ASSIGNMENT OPERATOR TEST ---" << std::endl;
 	Bureaucrat	b1("Dan", 50);
 	Bureaucrat	b2(46);
 	Form		f1("Cat food", 50);
@@ -95,6 +99,7 @@ void	assignment_operator_test()
 
 void	invalid_arguments_test()
 {
+	std::cout << std::endl << "--- INVALID ARGUMENTS TEST ---" << std::endl;
 	std::cout << "** invalid constructors **" << std::endl;
 	Bureaucrat	invalid_grade_low(151);
 	Bureaucrat	invalid_grade_high(0);

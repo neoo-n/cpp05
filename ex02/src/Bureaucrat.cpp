@@ -1,5 +1,5 @@
 
-#include "Bureaucrat.hpp"
+#include "../incl/Bureaucrat.hpp"
 
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 
@@ -27,12 +27,7 @@ Bureaucrat::Bureaucrat(int grade)
 		else
 			throw Bureaucrat::GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
-	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
@@ -58,12 +53,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 		else
 			throw GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
-	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
@@ -107,7 +97,7 @@ void	Bureaucrat::increment()
 		else
 			throw GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
@@ -123,7 +113,7 @@ void	Bureaucrat::decrement()
 		else
 			throw GradeTooLowException();
 	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
@@ -148,10 +138,12 @@ void	Bureaucrat::executeForm(AForm const & form) const
 	try
 	{
 		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << "Exception with form " << form.getName() << " execution : ";
+		std::cerr << e.what() << std::endl << WHITE;
 	}
 }
 

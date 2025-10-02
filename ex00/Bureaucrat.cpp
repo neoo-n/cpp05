@@ -6,13 +6,13 @@
 Bureaucrat::Bureaucrat()
 : _name("default"), _grade(150)
 {
-    std::cout << "Default Bureaucrat constructor called" << std::endl;
+    std::cout << BLUE << "Default Bureaucrat constructor called" << std::endl << WHITE;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
 : _name(cpy._name), _grade(cpy._grade)
 {
-    std::cout << "Copy Bureaucrat constructor called" << std::endl;
+    std::cout << BLUE << "Copy Bureaucrat constructor called" << std::endl << WHITE;
 }
 
 Bureaucrat::Bureaucrat(int grade)
@@ -27,23 +27,18 @@ Bureaucrat::Bureaucrat(int grade)
 		else
 			throw Bureaucrat::GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
-		std::cerr << "\033[0;31m" << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << "\033[0m" << std::endl;
+		std::cerr << RED << "Exception with " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
 	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << "\033[0;31m" << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << "\033[0m" << std::endl;
-	}
-	std::cout << "Grade assignement Bureaucrat constructor called" << std::endl;
+	std::cout << BLUE << "Grade assignement Bureaucrat constructor called" << std::endl << WHITE;
 }
 
 Bureaucrat::Bureaucrat(std::string name)
 : _name(name), _grade(150)
 {
-	std::cout << "Name assignement Bureaucrat constructor called" << std::endl;
+	std::cout << BLUE << "Name assignement Bureaucrat constructor called" << std::endl << WHITE;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -58,22 +53,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 		else
 			throw GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
-		std::cerr << "\033[0;31m" << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << "\033[0m" << std::endl;
+		std::cerr << RED << "Exception with " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
 	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << "\033[0;31m" << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << "\033[0m" << std::endl;
-	}
-	std::cout << "Name and Grade assignement Bureaucrat constructor called" << std::endl;
+	std::cout << BLUE << "Name and Grade assignement Bureaucrat constructor called" << std::endl << WHITE;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Destructor Bureaucrat called" << std::endl;
+    std::cout << YELLOW << "Destructor Bureaucrat called" << std::endl << WHITE;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
@@ -82,7 +72,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 	{
 		this->_grade = obj._grade;
 	}
-	std::cout << "Assignment Bureaucrat called" << std::endl;
+	std::cout << PINK << "Assignment Bureaucrat called" << std::endl << WHITE;
 	return (*this);
 }
 
@@ -107,10 +97,10 @@ void	Bureaucrat::increment()
 		else
 			throw GradeTooHighException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
-		std::cerr << "\033[0;31m" << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << "\033[0m" << std::endl;
+		std::cerr << RED << "Exception with " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
 	}	
 }
 
@@ -123,10 +113,10 @@ void	Bureaucrat::decrement()
 		else
 			throw GradeTooLowException();
 	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
-		std::cerr << "\033[0;31m" << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << "\033[0m" << std::endl;
+		std::cerr << RED << "Exception with " << this->_name << " : ";
+		std::cerr << e.what() << std::endl << WHITE;
 	}
 }
 

@@ -29,16 +29,12 @@ Form::Form(const int grade_sign)
 		else if (grade_sign > 150)
 			throw GradeTooLowException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with form " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
 	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
+	std::cout << BLUE << "Grade assignement Form constructor called" << std::endl << WHITE;
 }
 
 Form::Form(const std::string name, const int grade_sign)
@@ -51,16 +47,12 @@ Form::Form(const std::string name, const int grade_sign)
 		else if (grade_sign > 150)
 			throw GradeTooLowException();
 	}
-	catch(GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with form " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;
 	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
+	std::cout << BLUE << "Name and Grade assignement Form constructor called" << std::endl << WHITE;
 }
 
 Form::~Form()
@@ -110,7 +102,7 @@ void	Form::beSigned(const Bureaucrat &b)
 		else
 			throw GradeTooLowException();
 	}
-	catch(GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << RED << "Exception with form " << this->_name << " : ";
 		std::cerr << e.what() << std::endl << WHITE;

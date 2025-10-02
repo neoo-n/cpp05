@@ -20,16 +20,17 @@ class ShrubberyCreationForm : public AForm
 		class	FileNotOpen : public std::exception
 		{
 			public:
-				const char*	what() {return "File not open.";}
+				const char*	what() const throw();
 		};
 
     public:
         ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm &cpy);
+		ShrubberyCreationForm(const std::string target);
         ~ShrubberyCreationForm();
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
 
-		void	execution();
+		void	execution() const;
 };
 
 #endif

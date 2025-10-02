@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "../incl/Bureaucrat.hpp"
+#include "../incl/AForm.hpp"
+#include "../incl/ShrubberyCreationForm.hpp"
+#include "../incl/RobotomyRequestForm.hpp"
+#include "../incl/PresidentialPardonForm.hpp"
 
 
 void	assignement_constructor_test()
@@ -73,15 +73,10 @@ void	assignement_constructor_test()
 	
 	std::cout << std::endl << "2)" << std::endl;
 	b1.executeForm(r1);
-	usleep(100000);
 	b2.executeForm(r1);
-	usleep(100000);
 	btot.executeForm(r1);
-	usleep(100000);
 	b1.executeForm(r2);
-	usleep(100000);
 	b2.executeForm(r2);
-	usleep(100000);
 	btot.executeForm(r2);
 
 	std::cout << std::endl << "tot)" << std::endl;
