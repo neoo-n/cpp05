@@ -1,5 +1,5 @@
 
-#include "Intern.hpp"
+#include "../incl/Intern.hpp"
 
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 
@@ -10,6 +10,7 @@ Intern::Intern()
 
 Intern::Intern(const Intern &cpy)
 {
+	(void)cpy;
     std::cout << BLUE << "Copy Intern constructor called" << WHITE << std::endl;
 }
 
@@ -20,14 +21,16 @@ Intern::~Intern()
 
 Intern &Intern::operator=(const Intern &obj)
 {
+	(void)obj;
 	std::cout << PINK << "Assignment Intern called" << WHITE << std::endl;
+	return (*this);
 }
 
 // ------------------------------- METHODS -------------------------------------
 AForm	*Intern::makeForm(const std::string name_form, const std::string target_form)
 {
 	int	i = 0;
-	std::string	names[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+	std::string	names[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
 	while (i < 4)
 	{
@@ -54,5 +57,5 @@ AForm	*Intern::makeForm(const std::string name_form, const std::string target_fo
 // --------------------------------- EXCEPTIONS -----------------------------------------
 const char*	Intern::NoProvidedFormName::what() const throw()
 {
-	return "There is no form with this name.";
+	return "There is no form with this name. Try with \"shrubbery creation\", \"robotomy request\" or \"presidential pardon\".";
 }

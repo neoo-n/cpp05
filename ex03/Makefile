@@ -1,7 +1,7 @@
-NAME	=	aform
+NAME	=	intern
 SRCS	=	$(addprefix src/, main.cpp Bureaucrat.cpp AForm.cpp\
 				PresidentialPardonForm.cpp RobotomyRequestForm.cpp\
-				ShrubberyCreationForm.cpp)
+				ShrubberyCreationForm.cpp Intern.cpp)
 OBJS	=	${SRCS:src/%.cpp=${OBJDIR}/%.o}
 OBJDIR	=	obj
 CC		=	c++
