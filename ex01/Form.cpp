@@ -22,36 +22,20 @@ Form::Form(const std::string name)
 Form::Form(const int grade_sign)
 : _name("default"), _signed(false), _grade_sign(grade_sign), _grade_execute(1)
 {
-	try
-	{
-		if (grade_sign < 1)
-			throw	GradeTooHighException();
-		else if (grade_sign > 150)
-			throw GradeTooLowException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
+	if (grade_sign < 1)
+		throw	GradeTooHighException();
+	else if (grade_sign > 150)
+		throw GradeTooLowException();
 	std::cout << BLUE << "Grade assignement Form constructor called" << std::endl << WHITE;
 }
 
 Form::Form(const std::string name, const int grade_sign)
 : _name(name), _signed(false), _grade_sign(grade_sign),_grade_execute(1)
 {
-	try
-	{
-		if (grade_sign < 1)
-			throw	GradeTooHighException();
-		else if (grade_sign > 150)
-			throw GradeTooLowException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
+	if (grade_sign < 1)
+		throw	GradeTooHighException();
+	else if (grade_sign > 150)
+		throw GradeTooLowException();
 	std::cout << BLUE << "Name and Grade assignement Form constructor called" << std::endl << WHITE;
 }
 
@@ -95,19 +79,10 @@ int const			&Form::getGradeExecute() const
 // ------------------------------- METHODS -------------------------------------
 void	Form::beSigned(const Bureaucrat &b)
 {
-	try
-	{
-		if (b.getGrade() <= this->_grade_sign)
-			this->_signed = true;
-		else
-			throw GradeTooLowException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
-	}
-	
+	if (b.getGrade() <= this->_grade_sign)
+		this->_signed = true;
+	else
+		throw GradeTooLowException();
 }
 
 // --------------------------------- EXCEPTIONS -----------------------------------------

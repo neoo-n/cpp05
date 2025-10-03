@@ -31,8 +31,7 @@ AForm::AForm(const int grade_sign)
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 	std::cout << BLUE << "Grade assignement AForm constructor called" << std::endl << WHITE;
 }
@@ -49,8 +48,7 @@ AForm::AForm(const std::string name, const int grade_sign)
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 	std::cout << BLUE << "Name and Grade assignement AForm constructor called" << std::endl << WHITE;
 }
@@ -67,8 +65,7 @@ AForm::AForm(const std::string name, const int grade_sign, const int grade_execu
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 	std::cout << BLUE << "Name and Grades assignement AForm constructor called" << std::endl << WHITE;
 }
@@ -127,8 +124,7 @@ void	AForm::beSigned(const Bureaucrat &b)
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with form " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 }
 

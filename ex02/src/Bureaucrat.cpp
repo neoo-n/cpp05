@@ -29,8 +29,7 @@ Bureaucrat::Bureaucrat(int grade)
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 	std::cout << BLUE << "Grade assignement Bureaucrat constructor called" << std::endl << WHITE;
 }
@@ -55,8 +54,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 	std::cout << BLUE << "Name and Grade assignement Bureaucrat constructor called" << std::endl << WHITE;
 }
@@ -99,8 +97,7 @@ void	Bureaucrat::increment()
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}	
 }
 
@@ -115,8 +112,7 @@ void	Bureaucrat::decrement()
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with " << this->_name << " : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 }
 
@@ -142,8 +138,7 @@ void	Bureaucrat::executeForm(AForm const & form) const
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << RED << "Exception with form " << form.getName() << " execution : ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << e.what() << std::endl << WHITE;
 	}
 }
 
