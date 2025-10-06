@@ -92,18 +92,14 @@ void	Bureaucrat::signForm(Form &f)
 {
 	try
 	{
-		if (!&f)
-			throw NoForm();
 		f.beSigned(*this);
 		std::cout <<  this->_name << " signed " << f.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << RED << this->getName() << " couldn't sign " << f.getName() << " because ";
-		std::cerr << e.what() << std::endl << WHITE;
+		std::cerr << RED << this->getName() << " couldn't sign " << f.getName();
+		std::cerr << " because " << e.what() << std::endl << WHITE;
 	}
-	
-	
 }
 
 // --------------------------------- EXCEPTIONS -----------------------------------------
@@ -111,15 +107,9 @@ const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Bureaucrat : You can't have a grade this high.";
 }
-
 const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Bureaucrat : You can't have a grade this low.";
-}
-
-const char*	Bureaucrat::NoForm::what() const throw()
-{
-	return "There is no form to sign.";
 }
 
 // -------------------------------- OUT FUNCTIONS ---------------------------------------

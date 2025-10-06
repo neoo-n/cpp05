@@ -139,8 +139,11 @@ void	invalid_arguments_test()
 
 	try
 	{
-		std::cout << std::endl << "** invalid signing :: too low **" << std::endl;
-		
+		std::cout << std::endl << "** invalid signing : too low **" << std::endl;
+		Bureaucrat	b1("Dan", 45);
+		Form		f1("Cat food", 40);
+
+		b1.signForm(f1);
 	}
 	catch(const std::exception& e)
 	{

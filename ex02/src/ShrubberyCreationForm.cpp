@@ -4,7 +4,7 @@
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-: AForm("shrubbery", 145, 137), _target("default")
+: AForm("shrubbery creation", 145, 137), _target("default")
 {
     std::cout << BLUE << "Default ShrubberyCreationForm constructor called" << WHITE << std::endl;
 }
@@ -16,7 +16,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
-: AForm("shrubbery", 145, 137), _target(target)
+: AForm("shrubbery creation", 145, 137), _target(target)
 {
     std::cout << BLUE << "Name ShrubberyCreationForm constructor called" << WHITE << std::endl;
 }
@@ -78,6 +78,7 @@ void	ShrubberyCreationForm::execution() const
 		throw FileNotOpen();
 }
 
+// --------------------------------- EXCEPTIONS -----------------------------------------
 const char*	ShrubberyCreationForm::FileNotOpen::what() const throw()
 {
 	return "File not open.";

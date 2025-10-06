@@ -40,17 +40,17 @@ AForm	*Intern::makeForm(const std::string name_form, const std::string target_fo
 	}
 	switch (i)
 	{
-	case 0:
-		std::cout << "Intern creates " << names[i] << std::endl;
-		return new ShrubberyCreationForm(target_form);
-	case 1:
-		std::cout << "Intern creates " << names[i] << std::endl;
-		return new RobotomyRequestForm(target_form);
-	case 2:
-		std::cout << "Intern creates " << names[i] << std::endl;
-		return new PresidentialPardonForm(target_form);
-	default:
-		throw NoProvidedFormName();
+		case 0:
+			std::cout << "Intern creates " << names[i] << std::endl;
+			return new ShrubberyCreationForm(target_form);
+		case 1:
+			std::cout << "Intern creates " << names[i] << std::endl;
+			return new RobotomyRequestForm(target_form);
+		case 2:
+			std::cout << "Intern creates " << names[i] << std::endl;
+			return new PresidentialPardonForm(target_form);
+		default:
+			throw NoProvidedFormName();
 	}
 }
 

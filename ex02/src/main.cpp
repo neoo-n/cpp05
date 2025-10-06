@@ -9,92 +9,131 @@
 void	assignement_constructor_test()
 {
 	std::cout << "--- ASSIGNMENT CONSTRUCTOR TEST ---" << std::endl;
-	Bureaucrat	b1("Dan");
-	Bureaucrat	b2(45);
-	Bureaucrat	btot("Fujii Kaze", 1);
-	ShrubberyCreationForm	s1;
-	ShrubberyCreationForm	s2("super_tree");
-	RobotomyRequestForm		r1;
-	RobotomyRequestForm		r2("genius");
-	PresidentialPardonForm	p1;
-	PresidentialPardonForm	p2("Sisi");
+	try
+	{
+		Bureaucrat	b("Fujii Kaze", 1);
+		ShrubberyCreationForm	s1("super_tree");
+		RobotomyRequestForm		r1("genius");
+		PresidentialPardonForm	p1("Sisi");
 
-	std::cout << b1 << std::endl;
-	std::cout << b2 << std::endl;
-	std::cout << btot << std::endl;
-	std::cout << s1 << std::endl;
-	std::cout << s2 << std::endl;
-	std::cout << r1 << std::endl;
-	std::cout << r2 << std::endl;
-	std::cout << p1 << std::endl;
-	std::cout << p2 << std::endl;
+		std::cout << b << std::endl;
+		std::cout << s1 << std::endl;
+		std::cout << r1 << std::endl;
+		std::cout << p1 << std::endl;
 
-	std::cout << std::endl << "** Form sign **" << std::endl;
-	std::cout << "1)" << std::endl;
-	b1.signAForm(s1);
-	b2.signAForm(s1);
-	btot.signAForm(s1);
-	b1.signAForm(s2);
-	b2.signAForm(s2);
-	btot.signAForm(s2);
+		std::cout << std::endl << "** Form sign **" << std::endl;
+		b.signAForm(s1);
+		b.signAForm(r1);
+		b.signAForm(p1);
+
+		std::cout << std::endl << "** Execution form **" << std::endl;
+		std::cout << "1)" << std::endl;
+		b.executeForm(s1);
 	
-	std::cout << std::endl << "2)" << std::endl;
-	b1.signAForm(r1);
-	b2.signAForm(r1);
-	btot.signAForm(r1);
-	b1.signAForm(r2);
-	b2.signAForm(r2);
-	btot.signAForm(r2);
+		std::cout << std::endl << "2)" << std::endl;
+		b.executeForm(r1);
 
-	std::cout << std::endl << "tot)" << std::endl;
-	b1.signAForm(p1);
-	b2.signAForm(p1);
-	btot.signAForm(p1);
-	b1.signAForm(p2);
-	b2.signAForm(p2);
-	btot.signAForm(p2);
+		std::cout << std::endl << "3)" << std::endl;
+		b.executeForm(p1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << WHITE;
+	}
+}
 
-	std::cout << std::endl;
-	std::cout << s1 << std::endl;
-	std::cout << r1 << std::endl;
-	std::cout << p1 << std::endl;
-	std::cout << s2 << std::endl;
-	std::cout << r2 << std::endl;
-	std::cout << p2 << std::endl;
+void	invalid_arguments_test()
+{
+	std::cout << std::endl << "--- INVALID ARGUMENTS TEST ---" << std::endl;
+	try
+	{
+		std::cout << "** invalid shrubbery : too low **" << std::endl;
+		Bureaucrat	b1("Fujii Kaze", 1);
+		Bureaucrat	b2(150);
+		ShrubberyCreationForm	s1("super_tree");
 
-	std::cout << std::endl << "** Execution form **" << std::endl;
-	std::cout << "1)" << std::endl;
-	b1.executeForm(s1);
-	b2.executeForm(s1);
-	btot.executeForm(s1);
-	b1.executeForm(s2);
-	b2.executeForm(s2);
-	btot.executeForm(s2);
-	
-	std::cout << std::endl << "2)" << std::endl;
-	b1.executeForm(r1);
-	usleep(100000);
-	b2.executeForm(r1);
-	usleep(100000);
-	btot.executeForm(r1);
-	usleep(100000);
-	b1.executeForm(r2);
-	usleep(100000);
-	b2.executeForm(r2);
-	usleep(100000);
-	btot.executeForm(r2);
+		b1.signAForm(s1);
+		b2.executeForm(s1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << WHITE;
+	}
 
-	std::cout << std::endl << "tot)" << std::endl;
-	b1.executeForm(p1);
-	b2.executeForm(p1);
-	btot.executeForm(p1);
-	b1.executeForm(p2);
-	b2.executeForm(p2);
-	btot.executeForm(p2);
+	try
+	{
+		std::cout << std::endl << "** invalid robotomy : too low **" << std::endl;
+		Bureaucrat	b1("Fujii Kaze", 1);
+		Bureaucrat	b2(150);
+		RobotomyRequestForm		r1("genius");
+
+		b1.signAForm(r1);
+		b2.executeForm(r1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << WHITE;
+	}
+
+	try
+	{
+		std::cout << std::endl << "** invalid presidential : too low **" << std::endl;
+		Bureaucrat	b1("Fujii Kaze", 1);
+		Bureaucrat	b2(150);
+		PresidentialPardonForm	p1("Sisi");
+
+		b1.signAForm(p1);
+		b2.executeForm(p1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << WHITE;
+	}
+
+	try
+	{
+		std::cout << "** invalid shrubbery : not signed **" << std::endl;
+		Bureaucrat	b("Fujii Kaze", 1);
+		ShrubberyCreationForm	s1("super_tree");
+
+		b.executeForm(s1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << WHITE;
+	}
+
+	try
+	{
+		std::cout << std::endl << "** invalid robotomy : not signed **" << std::endl;
+		Bureaucrat	b("Fujii Kaze", 1);
+		RobotomyRequestForm		r1("genius");
+		
+
+		b.executeForm(r1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << WHITE;
+	}
+
+	try
+	{
+		std::cout << std::endl << "** invalid presidential : not signed **" << std::endl;
+		Bureaucrat	b("Fujii Kaze", 1);
+		PresidentialPardonForm	p1("Sisi");
+
+		b.executeForm(p1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << WHITE;
+	}
 }
 
 int main()
 {
 	assignement_constructor_test();
+	invalid_arguments_test();
 	return 0;
 }

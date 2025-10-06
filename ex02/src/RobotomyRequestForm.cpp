@@ -4,7 +4,7 @@
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 
 RobotomyRequestForm::RobotomyRequestForm()
-: AForm("robotomy", 72, 45), _target("default")
+: AForm("robotomy request", 72, 45), _target("default")
 {
     std::cout << BLUE << "Default RobotomyRequestForm constructor called" << WHITE << std::endl;
 }
@@ -16,7 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &cpy)
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
-: AForm("robotomy", 72, 45), _target(target)
+: AForm("robotomy request", 72, 45), _target(target)
 {
     std::cout << BLUE << "Name RobotomyRequestForm constructor called" << WHITE << std::endl;
 }

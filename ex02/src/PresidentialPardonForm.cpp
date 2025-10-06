@@ -4,7 +4,7 @@
 // ------------------------------ CONSTRUCTORS AND DESTRUCTOR -------------------------------------
 
 PresidentialPardonForm::PresidentialPardonForm()
-: AForm("presidential", 25, 5), _target("default")
+: AForm("presidential pardon", 25, 5), _target("default")
 {
     std::cout << BLUE << "Default PresidentialPardonForm constructor called" << WHITE << std::endl;
 }
@@ -16,7 +16,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cpy
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target)
-: AForm("presidential", 25, 5), _target(target)
+: AForm("presidential pardon", 25, 5), _target(target)
 {
     std::cout << BLUE << "Name PresidentialPardonForm constructor called" << WHITE << std::endl;
 }

@@ -22,51 +22,30 @@ AForm::AForm(const std::string name)
 AForm::AForm(const int grade_sign)
 : _name("default"), _signed(false), _grade_sign(grade_sign), _grade_execute(1)
 {
-	try
-	{
-		if (grade_sign < 1)
-			throw	GradeTooHighException();
-		else if (grade_sign > 150)
-			throw GradeTooLowException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << RED << e.what() << std::endl << WHITE;
-	}
+	if (grade_sign < 1)
+		throw	GradeTooHighException();
+	else if (grade_sign > 150)
+		throw GradeTooLowException();
 	std::cout << BLUE << "Grade assignement AForm constructor called" << std::endl << WHITE;
 }
 
 AForm::AForm(const std::string name, const int grade_sign)
 : _name(name), _signed(false), _grade_sign(grade_sign),_grade_execute(1)
 {
-	try
-	{
-		if (grade_sign < 1)
-			throw	GradeTooHighException();
-		else if (grade_sign > 150)
-			throw GradeTooLowException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << RED << e.what() << std::endl << WHITE;
-	}
+	if (grade_sign < 1)
+		throw	GradeTooHighException();
+	else if (grade_sign > 150)
+		throw GradeTooLowException();
 	std::cout << BLUE << "Name and Grade assignement AForm constructor called" << std::endl << WHITE;
 }
 
 AForm::AForm(const std::string name, const int grade_sign, const int grade_execute)
 : _name(name), _signed(false), _grade_sign(grade_sign),_grade_execute(grade_execute)
 {
-	try
-	{
-		if (grade_sign < 1 || grade_sign < 1)
-			throw	GradeTooHighException();
-		else if (grade_sign > 150 || grade_execute > 150)
-			throw GradeTooLowException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << RED << e.what() << std::endl << WHITE;
-	}
+	if (grade_sign < 1 || grade_sign < 1)
+		throw	GradeTooHighException();
+	else if (grade_sign > 150 || grade_execute > 150)
+		throw GradeTooLowException();
 	std::cout << BLUE << "Name and Grades assignement AForm constructor called" << std::endl << WHITE;
 }
 
@@ -115,17 +94,10 @@ void				AForm::setSigned(const bool new_signed)
 // ------------------------------- METHODS -------------------------------------
 void	AForm::beSigned(const Bureaucrat &b)
 {
-	try
-	{
-		if (b.getGrade() <= this->_grade_sign)
-			this->_signed = true;
-		else
-			throw GradeTooLowException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << RED << e.what() << std::endl << WHITE;
-	}
+	if (b.getGrade() <= this->_grade_sign)
+		this->_signed = true;
+	else
+		throw GradeTooLowException();
 }
 
 void	AForm::execute(Bureaucrat const & executor) const
